@@ -6,9 +6,9 @@ import org.apache.kafka.clients.producer.RecordMetadata;
 class MyCallback implements Callback {
 
     public void onCompletion(RecordMetadata metadata, Exception exception) {
-        if ( exception != null)
+        if (exception != null)
             exception.printStackTrace();
         else
-           System.out.println("Message posted call back success");
+            System.out.println("Message posted call back success");
     }
 }

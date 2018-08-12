@@ -29,7 +29,6 @@ class FirstProducer {
         try {
             pd.send(rec).get();
         } catch (InterruptedException e) {
-            e.printStackTrace();
         } catch (ExecutionException e) {
             e.printStackTrace();
         }
