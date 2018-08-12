@@ -16,6 +16,7 @@ class FirstProducer {
         p.put("bootstrap.servers","localhost:9092");
         p.put("key.serializer","org.apache.kafka.common.serialization.StringSerializer");
         p.put("value.serializer","org.apache.kafka.common.serialization.StringSerializer");
+        p.put("partitioner.class", "life.jugnu.learnkafka.LogEnabledPartitioner");
 
         // Create producer and send data in format : (topic name , key , value)
         Producer<String,String> pd = new KafkaProducer<>(p);
