@@ -11,7 +11,7 @@ public class FirstConsumer {
     public static void main(String[] args) {
         Properties p = new Properties();
         p.put("bootstrap.servers", "localhost:9092");
-        p.put("group.id", "FirstConsumer");
+        p.put("group.id", "default");
         p.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
         p.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
 
