@@ -26,6 +26,7 @@ class FirstProducer {
         // 1) Fire and forget
         pd.send(rec);
 
+
         // 2) Syncronous send , wait for response object
         try {
             pd.send(rec).get();

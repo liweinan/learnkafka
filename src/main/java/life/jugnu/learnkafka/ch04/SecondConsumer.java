@@ -7,7 +7,7 @@ import org.apache.kafka.clients.consumer.KafkaConsumer;
 import java.util.Collections;
 import java.util.Properties;
 
-public class FirstConsumer {
+public class SecondConsumer extends FirstConsumer {
     public static void main(String[] args) {
         Properties p = new Properties();
         p.put("bootstrap.servers", "localhost:9092");
@@ -32,13 +32,4 @@ public class FirstConsumer {
         }
     }
 
-    public static void printRecord(ConsumerRecord<String, String> r) {
-        System.out.printf(
-                "topic = %s, partition = %s, offset = %d, customer = %s, country = %s\n",
-                r.topic(),
-                r.partition(),
-                r.offset(),
-                r.key(),
-                r.value());
-    }
 }
