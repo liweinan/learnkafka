@@ -1,0 +1,27 @@
+{
+  "schema": {
+    "type": "record",
+    "name": "User",
+    "namespace": "life.jugnu.learnkafka.ch03",
+    "fields": [
+      {
+        "name": "name",
+        "type": "string"
+      },
+      {
+        "name": "favorite_number",
+        "type": [
+          "int",
+          "null"
+        ]
+      },
+      {
+        "name": "favorite_color",
+        "type": [
+          "string",
+          "null"
+        ]
+      }
+    ]
+  }
+}
