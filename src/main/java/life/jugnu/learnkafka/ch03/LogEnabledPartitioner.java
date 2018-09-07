@@ -45,11 +45,12 @@ public class LogEnabledPartitioner extends DefaultPartitioner {
     public int partition(String topic, Object key, byte[] keyBytes, Object value, byte[] valueBytes, Cluster cluster) {
         List<PartitionInfo> partitions = cluster.partitionsForTopic(topic);
         int numPartitions = partitions.size();
+        System.out.println(String.format("available partitions for topic: %s", numPartitions));
         if (keyBytes == null) {
             int nextValue = counter.getAndIncrement();
             List<PartitionInfo> availablePartitions = cluster.availablePartitionsForTopic(topic);
 
-            System.out.println(String.format("available partitions for topic: %s", availablePartitions.size()));
+
 
             if (availablePartitions.size() > 0) {
                 int part = toPositive(nextValue) % availablePartitions.size();
@@ -60,7 +61,9 @@ public class LogEnabledPartitioner extends DefaultPartitioner {
             }
         } else {
             // hash the keyBytes to choose a partition
-            return toPositive(Utils.murmur2(keyBytes)) % numPartitions;
+            int idx = toPositive(Utils.murmur2(keyBytes)) % numPartitions;
+            System.out.println("partitions: " + idx);
+            return idx;
         }
     }
 
